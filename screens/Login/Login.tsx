@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Text } from "react-native-magnus";
-import Logo from "../../components/Logo";
-import LoginForm from "../../widgets/login/LoginForm/LoginForm";
+import { Logo } from "components";
+import LoginForm from "widgets/login/LoginForm";
 
 function Login() {
   return (
