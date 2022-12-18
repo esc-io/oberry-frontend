@@ -1,20 +1,36 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { Text } from "react-native-magnus";
+import Logo from "../../components/Logo";
+import LoginForm from "../../widgets/login/LoginForm/LoginForm";
 
-export default function App() {
+function Login() {
   return (
     <View style={styles.container}>
-      <Text>로그인 페이지</Text>
-      <StatusBar style="auto" />
+      <View>
+        <View style={styles.logo}>
+          <Logo />
+        </View>
+        <Text fontSize="6xl" color="white">
+          {`오’베리에서\n당신의 운명을\n만나보세요.`}
+        </Text>
+      </View>
+      <LoginForm />
     </View>
   );
 }
 
+export default Login;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    backgroundColor: "#22242c",
+    padding: 32,
+  },
+  logo: {
+    paddingBottom: 32,
   },
 });
