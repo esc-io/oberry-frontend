@@ -2,7 +2,11 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Text, Input, Icon, Button } from "react-native-magnus";
 
+import { useLinkTo } from "@react-navigation/native";
+
 function LoginForm() {
+  const linkTo = useLinkTo();
+
   return (
     <View style={styles.container}>
       <Text color="gray400">로그인</Text>
@@ -52,7 +56,7 @@ function LoginForm() {
         로그인
       </Button>
       <View style={styles.linkBox}>
-        <Text fontSize={14} color="white">
+        <Text fontSize={14} color="white" onPress={() => linkTo("/sign-up")}>
           회원가입
         </Text>
         <Text fontSize={14} color="white">
