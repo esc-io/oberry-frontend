@@ -2,6 +2,11 @@ module.exports = function (api) {
   api.cache(true);
   return {
     presets: ["babel-preset-expo"],
+    env: {
+      production: {
+        plugins: ["react-native-paper/babel"],
+      },
+    },
     plugins: [
       [
         "module-resolver",
@@ -10,6 +15,7 @@ module.exports = function (api) {
             components: "./components",
             layouts: "./layouts",
             screens: "./screens",
+            styles: "./styles",
             widgets: "./widgets",
           },
         },
