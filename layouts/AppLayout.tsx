@@ -1,36 +1,32 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { Text, Icon } from "react-native-magnus";
 
-import { getStatusBarHeight } from "react-native-status-bar-height";
-import { StatusBar, Platform } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
+import { Appbar } from "react-native-paper";
+import { theme, useAppTheme } from "styles/theme";
 
 interface AppLayoutProps {
   title?: string;
   children: React.ReactNode;
 }
 
-const STATUS_BAR_Height =
-  (Platform.OS === "ios"
-    ? getStatusBarHeight(true)
-    : StatusBar.currentHeight) ?? 0;
-
 function AppLayout({ title, children }: AppLayoutProps) {
+  const theme = useAppTheme();
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       {title && (
-        <View style={styles.title}>
-          <Icon
-            style={styles.icon}
-            name="arrow-back"
-            fontFamily="MaterialIcons"
-            fontSize={24}
-            color="white"
+        <Appbar.Header style={styles.header}>
+          <Appbar.BackAction
+            color={theme.colors.white}
+            onPress={() => {
+              navigation.goBack();
+            }}
           />
-          <Text color="white" fontSize="3xl">
-            {title}
-          </Text>
-        </View>
+          <Appbar.Content color={theme.colors.white} title={title} />
+        </Appbar.Header>
       )}
       <View>{children}</View>
     </View>
@@ -41,19 +37,10 @@ export default AppLayout;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#22242c",
+    height: "100%",
+    backgroundColor: theme.colors.gray900,
   },
-  title: {
-    width: "100%",
-    position: "relative",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    height: 64 + STATUS_BAR_Height,
-  },
-  icon: {
-    position: "absolute",
-    left: 16,
+  header: {
+    backgroundColor: theme.colors.gray900,
   },
 });

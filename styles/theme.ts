@@ -1,12 +1,12 @@
-import { MD3LightTheme, useTheme } from "react-native-paper";
+import { MD3LightTheme, useTheme, configureFonts } from "react-native-paper";
 
 export const theme = {
   ...MD3LightTheme,
   custom: "property",
-
   colors: {
     ...MD3LightTheme.colors,
     primary: "#F5C750",
+    gray500: "#a4aabc",
     gray900: "#22242c",
     white: "#ffff",
     black: "#000",
