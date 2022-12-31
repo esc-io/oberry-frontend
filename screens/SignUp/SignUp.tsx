@@ -2,12 +2,16 @@ import React from "react";
 
 import { AppLayout } from "layouts";
 
-import { Introduction } from "widgets/SignUp/AccountCreation";
+import {
+  Introduction,
+  SelfCertification,
+} from "widgets/SignUp/AccountCreation";
 
 function SignUp() {
   return (
     <AppLayout>
-      <Introduction />
+      {/* <Introduction /> */}
+      <SelfCertification />
     </AppLayout>
   );
 }
