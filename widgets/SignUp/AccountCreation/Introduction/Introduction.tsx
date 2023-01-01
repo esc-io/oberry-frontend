@@ -2,12 +2,22 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Text, Div, Checkbox, Button } from "react-native-magnus";
 
-import { useLinkTo } from "@react-navigation/native";
+import {
+  useLinkTo,
+  useNavigation,
+  StackActions,
+} from "@react-navigation/native";
 
 import { Logo } from "components";
 
+import { SIGN_UP_SELF_CERTIFICATION } from "constants/signUp";
+
 function Introduction() {
   const linkTo = useLinkTo();
+  const navigation = useNavigation();
+  const pushAction = StackActions.push("sign-up", {
+    step: SIGN_UP_SELF_CERTIFICATION,
+  });
 
   return (
     <View style={styles.container}>
@@ -70,7 +80,16 @@ function Introduction() {
           />
         </Div>
         <Div>
-          <Button w="100%" h={40} bg="#F5C750" rounded="circle" color="black">
+          <Button
+            w="100%"
+            h={40}
+            bg="#F5C750"
+            rounded="circle"
+            color="black"
+            onPress={() => {
+              navigation.dispatch(pushAction);
+            }}
+          >
             가입하기
           </Button>
           <Button

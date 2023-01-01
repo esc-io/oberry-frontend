@@ -2,11 +2,19 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Text, Button } from "react-native-paper";
 
+import { useNavigation, StackActions } from "@react-navigation/native";
+
 import { AppLayout } from "layouts";
+
 import { theme, useAppTheme } from "styles/theme";
+import { SIGN_UP_ACCOUNT_CREATION_FROM } from "constants/signUp";
 
 function SelfCertification() {
   const theme = useAppTheme();
+  const navigation = useNavigation();
+  const pushAction = StackActions.push("sign-up", {
+    step: SIGN_UP_ACCOUNT_CREATION_FROM,
+  });
 
   return (
     <AppLayout title="본인 인증">
@@ -23,7 +31,13 @@ function SelfCertification() {
 오베리는 단 한 명의 허위정보 및 유령회원, 타인명의 도용 등이 없는 서비스를 제공하기 위해 노력하고 있습니다.`}
           </Text>
         </View>
-        <Button mode="contained" textColor={theme.colors.black}>
+        <Button
+          mode="contained"
+          textColor={theme.colors.black}
+          onPress={() => {
+            navigation.dispatch(pushAction);
+          }}
+        >
           본인인증 하기
         </Button>
       </View>

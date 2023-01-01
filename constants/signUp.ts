@@ -1,0 +1,3 @@
+export const SIGN_UP_INTRODUCTION = 0;
+export const SIGN_UP_SELF_CERTIFICATION = 1;
+export const SIGN_UP_ACCOUNT_CREATION_FROM = 2;
