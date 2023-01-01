@@ -38,9 +38,9 @@ export default AppLayout;
 const styles = StyleSheet.create({
   container: {
     height: "100%",
-    backgroundColor: theme.colors.gray900,
+    backgroundColor: theme.colors.gray800,
   },
   header: {
-    backgroundColor: theme.colors.gray900,
+    backgroundColor: theme.colors.gray800,
   },
 });
