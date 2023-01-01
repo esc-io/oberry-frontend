@@ -10,6 +10,12 @@ import {
   AccountCreationForm,
 } from "widgets/SignUp/AccountCreation";
 
+import {
+  SIGN_UP_INTRODUCTION,
+  SIGN_UP_SELF_CERTIFICATION,
+  SIGN_UP_ACCOUNT_CREATION_FROM,
+} from "constants/signUp";
+
 function SignUp() {
   const {
     params: { step },
@@ -17,9 +23,9 @@ function SignUp() {
 
   return (
     <AppLayout>
-      {step === 0 && <Introduction />}
-      {step === 1 && <SelfCertification />}
-      {step === 2 && <AccountCreationForm />}
+      {step === SIGN_UP_INTRODUCTION && <Introduction />}
+      {step === SIGN_UP_SELF_CERTIFICATION && <SelfCertification />}
+      {step === SIGN_UP_ACCOUNT_CREATION_FROM && <AccountCreationForm />}
     </AppLayout>
   );
 }

@@ -2,10 +2,15 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Text, Input, Icon, Button } from "react-native-magnus";
 
-import { useLinkTo } from "@react-navigation/native";
+import { useNavigation, StackActions } from "@react-navigation/native";
+
+import { SIGN_UP_INTRODUCTION } from "constants/signUp";
 
 function LoginForm() {
-  const linkTo = useLinkTo();
+  const navigation = useNavigation();
+  const pushAction = StackActions.push("sign-up", {
+    step: SIGN_UP_INTRODUCTION,
+  });
 
   return (
     <View style={styles.container}>
@@ -56,7 +61,13 @@ function LoginForm() {
         로그인
       </Button>
       <View style={styles.linkBox}>
-        <Text fontSize={14} color="white" onPress={() => linkTo("/sign-up")}>
+        <Text
+          fontSize={14}
+          color="white"
+          onPress={() => {
+            navigation.dispatch(pushAction);
+          }}
+        >
           회원가입
         </Text>
         <Text fontSize={14} color="white">
