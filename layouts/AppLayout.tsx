@@ -16,7 +16,7 @@ function AppLayout({ title, children }: AppLayoutProps) {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <View>
       {title && (
         <Appbar.Header style={styles.header}>
           <Appbar.BackAction
@@ -28,7 +28,7 @@ function AppLayout({ title, children }: AppLayoutProps) {
           <Appbar.Content color={theme.colors.white} title={title} />
         </Appbar.Header>
       )}
-      <View>{children}</View>
+      <View style={styles.container}>{children}</View>
     </View>
   );
 }
@@ -37,8 +37,8 @@ export default AppLayout;
 
 const styles = StyleSheet.create({
   container: {
-    height: "100%",
     backgroundColor: theme.colors.gray800,
+    paddingBottom: 10,
   },
   header: {
     backgroundColor: theme.colors.gray800,
