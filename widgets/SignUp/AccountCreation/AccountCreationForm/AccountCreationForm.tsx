@@ -2,11 +2,19 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Text, TextInput, HelperText, Button } from "react-native-paper";
 
+import { useNavigation, StackActions } from "@react-navigation/native";
+
 import { AppLayout } from "layouts";
+
 import { theme, useAppTheme } from "styles/theme";
+import { SIGN_UP_INFORMATION_FORM } from "constants/signUp";
 
 function AccountCreationForm() {
   const theme = useAppTheme();
+  const navigation = useNavigation();
+  const pushAction = StackActions.push("sign-up", {
+    step: SIGN_UP_INFORMATION_FORM,
+  });
 
   return (
     <AppLayout title="계정 생성">
@@ -75,7 +83,13 @@ function AccountCreationForm() {
             </HelperText>
           </View>
         </View>
-        <Button mode="contained" textColor={theme.colors.black}>
+        <Button
+          mode="contained"
+          textColor={theme.colors.black}
+          onPress={() => {
+            navigation.dispatch(pushAction);
+          }}
+        >
           계정 생성
         </Button>
       </View>
