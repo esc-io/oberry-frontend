@@ -1,8 +1,9 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { Text, TextInput, Button, ProgressBar } from "react-native-paper";
 
 import { AppLayout } from "layouts";
+
 import { theme, useAppTheme } from "styles/theme";
 
 function InformationForm() {
@@ -94,41 +95,48 @@ function InformationForm() {
   return (
     <AppLayout title="기본정보 등록">
       <ProgressBar progress={0.25} color={theme.colors.primary} />
-      <View style={styles.container}>
-        <View style={styles.contents}>
-          <Text variant="bodyLarge" style={styles.title}>
-            매칭을 위한 회원님의 기본정보를 입력해주세요.
-          </Text>
-          {formData.map(({ label, value, icon }) => {
-            return (
-              <View key={label} style={styles.textInputBox}>
-                <Text variant="labelSmall" style={styles.textInputLabel}>
-                  {label}
-                </Text>
-                <TextInput
-                  value={value}
-                  editable={false}
-                  right={
-                    <TextInput.Icon
-                      icon={icon}
-                      iconColor={theme.colors.white}
-                    />
-                  }
-                  style={styles.textInput}
-                  theme={{
-                    colors: {
-                      onSurfaceVariant: theme.colors.gray500,
-                    },
-                  }}
-                />
-              </View>
-            );
-          })}
+      <ScrollView
+        style={{
+          height: "87%",
+        }}
+      >
+        <View style={styles.container}>
+          <View style={styles.contents}>
+            <Text variant="bodyLarge" style={styles.title}>
+              매칭을 위한 회원님의 기본정보를 입력해주세요.
+            </Text>
+            {formData.map(({ label, value, icon }) => {
+              return (
+                <View key={label} style={styles.textInputBox}>
+                  <Text variant="labelSmall" style={styles.textInputLabel}>
+                    {label}
+                  </Text>
+                  <TextInput
+                    value={value}
+                    editable={false}
+                    right={
+                      <TextInput.Icon
+                        icon={icon}
+                        iconColor={theme.colors.white}
+                        onPress={() => setVisible(true)}
+                      />
+                    }
+                    style={styles.textInput}
+                    theme={{
+                      colors: {
+                        onSurfaceVariant: theme.colors.gray500,
+                      },
+                    }}
+                  />
+                </View>
+              );
+            })}
+          </View>
+          <Button mode="contained" textColor={theme.colors.black}>
+            다음
+          </Button>
         </View>
-        <Button mode="contained" textColor={theme.colors.black}>
-          다음
-        </Button>
-      </View>
+      </ScrollView>
     </AppLayout>
   );
 }
