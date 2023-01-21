@@ -5,7 +5,7 @@ import { AppLayout } from "layouts";
 
 import { useRoute } from "@react-navigation/native";
 
-import { ListSelect } from "widgets/common";
+import { ListSelect, OneSelect } from "widgets/common";
 
 import {
   Introduction,
@@ -34,7 +34,8 @@ function SignUp() {
       {step === SIGN_UP_INFORMATION_FORM && (
         <View>
           {/* <InformationForm /> */}
-          <ListSelect />
+          {/* <ListSelect /> */}
+          <OneSelect />
         </View>
       )}
     </AppLayout>
