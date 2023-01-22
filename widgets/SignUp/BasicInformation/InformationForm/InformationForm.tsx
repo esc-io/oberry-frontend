@@ -94,48 +94,46 @@ function InformationForm() {
 
   return (
     <AppLayout title="기본정보 등록">
-      <ProgressBar progress={0.25} color={theme.colors.primary} />
+      {/* <ProgressBar progress={0.25} color={theme.colors.primary} /> */}
       <ScrollView
-        style={{
-          height: "87%",
-        }}
+        style={styles.container}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
       >
-        <View style={styles.container}>
-          <View style={styles.contents}>
-            <Text variant="bodyLarge" style={styles.title}>
-              매칭을 위한 회원님의 기본정보를 입력해주세요.
-            </Text>
-            {formData.map(({ label, value, icon }) => {
-              return (
-                <View key={label} style={styles.textInputBox}>
-                  <Text variant="labelSmall" style={styles.textInputLabel}>
-                    {label}
-                  </Text>
-                  <TextInput
-                    value={value}
-                    editable={false}
-                    right={
-                      <TextInput.Icon
-                        icon={icon}
-                        iconColor={theme.colors.white}
-                        onPress={() => setVisible(true)}
-                      />
-                    }
-                    style={styles.textInput}
-                    theme={{
-                      colors: {
-                        onSurfaceVariant: theme.colors.gray500,
-                      },
-                    }}
-                  />
-                </View>
-              );
-            })}
-          </View>
-          <Button mode="contained" textColor={theme.colors.black}>
-            다음
-          </Button>
+        <View>
+          <Text variant="bodyLarge" style={styles.title}>
+            매칭을 위한 회원님의 기본정보를 입력해주세요.
+          </Text>
+          {formData.map(({ label, value, icon }) => {
+            return (
+              <View key={label} style={styles.textInputBox}>
+                <Text variant="labelSmall" style={styles.textInputLabel}>
+                  {label}
+                </Text>
+                <TextInput
+                  value={value}
+                  editable={false}
+                  right={
+                    <TextInput.Icon
+                      icon={icon}
+                      iconColor={theme.colors.white}
+                      onPress={() => setVisible(true)}
+                    />
+                  }
+                  style={styles.textInput}
+                  theme={{
+                    colors: {
+                      onSurfaceVariant: theme.colors.gray500,
+                    },
+                  }}
+                />
+              </View>
+            );
+          })}
         </View>
+        <Button mode="contained" textColor={theme.colors.black}>
+          다음
+        </Button>
       </ScrollView>
     </AppLayout>
   );
@@ -145,7 +143,8 @@ export default InformationForm;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 32,
+    display: "flex",
+    flexDirection: "column",
   },
   title: {
     color: theme.colors.gray500,

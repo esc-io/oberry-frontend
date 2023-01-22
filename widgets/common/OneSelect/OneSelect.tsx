@@ -27,7 +27,7 @@ function OneSelect() {
           >
             {options.map((option, idx) => {
               return (
-                <View style={styles.RadioButtonBox}>
+                <View key={idx} style={styles.RadioButtonBox}>
                   <RadioButton.Android value={option} />
                   <Text
                     variant="bodyLarge"
@@ -57,9 +57,7 @@ const styles = StyleSheet.create({
   container: {
     height: "90%",
     flexDirection: "column",
-    justifyContent: "space-around",
-    paddingLeft: 32,
-    paddingRight: 32,
+    justifyContent: "space-between",
   },
   title: {
     color: theme.colors.white,
@@ -70,6 +68,8 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+    paddingTop: 12,
+    paddingBottom: 12,
     marginBottom: 4,
   },
 });
