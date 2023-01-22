@@ -4,36 +4,36 @@ import { StyleSheet, View } from "react-native";
 import { Text } from "react-native-magnus";
 import { Logo } from "components";
 
-import { AppLayout } from "layouts";
-
 import LoginForm from "widgets/login/LoginForm";
+
+import { theme } from "styles/theme";
 
 function Login() {
   return (
-    <AppLayout>
-      <View style={styles.container}>
-        <View>
-          <View style={styles.logo}>
-            <Logo />
-          </View>
-          <Text fontSize="6xl" color="white">
-            {`오’베리에서\n당신의 운명을\n만나보세요.`}
-          </Text>
+    <View style={styles.page}>
+      <View>
+        <View style={styles.logo}>
+          <Logo />
         </View>
-        <LoginForm />
+        <Text fontSize="6xl" color="white">
+          {`오’베리에서\n당신의 운명을\n만나보세요.`}
+        </Text>
       </View>
-    </AppLayout>
+      <LoginForm />
+    </View>
   );
 }
 
 export default Login;
 
 const styles = StyleSheet.create({
-  container: {
+  page: {
     height: "100%",
+    backgroundColor: theme.colors.gray800,
     flexDirection: "column",
     justifyContent: "space-evenly",
-    padding: 32,
+    paddingLeft: 32,
+    paddingRight: 32,
   },
   logo: {
     paddingBottom: 32,

@@ -104,7 +104,6 @@ const styles = StyleSheet.create({
     height: "90%",
     flexDirection: "column",
     justifyContent: "space-between",
-    padding: 32,
   },
   title: {
     color: theme.colors.white,
