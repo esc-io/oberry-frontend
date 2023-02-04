@@ -10,6 +10,7 @@ export const theme = {
     gray600: "#6b6f7a",
     gray800: "#22242c",
     gray900: "#16181d",
+    pink: "#fc7aa7",
     white: "#ffff",
     black: "#000",
   },

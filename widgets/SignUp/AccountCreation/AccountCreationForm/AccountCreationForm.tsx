@@ -7,13 +7,13 @@ import { useNavigation, StackActions } from "@react-navigation/native";
 import { AppLayout } from "layouts";
 
 import { theme, useAppTheme } from "styles/theme";
-import { SIGN_UP_INFORMATION_FORM } from "constants/signUp";
+import { SIGN_UP_PROFILE_PICTURE } from "constants/signUp";
 
 function AccountCreationForm() {
   const theme = useAppTheme();
   const navigation = useNavigation();
   const pushAction = StackActions.push("sign-up", {
-    step: SIGN_UP_INFORMATION_FORM,
+    step: SIGN_UP_PROFILE_PICTURE,
   });
 
   return (
