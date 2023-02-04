@@ -10,12 +10,14 @@ import {
   AccountCreationForm,
 } from "widgets/signUp/AccountCreation";
 import { InformationForm } from "widgets/signUp/BasicInformation";
+import { PhotoRegistration } from "widgets/signUp/ ProfilePicture";
 
 import {
   SIGN_UP_INTRODUCTION,
   SIGN_UP_SELF_CERTIFICATION,
   SIGN_UP_ACCOUNT_CREATION_FROM,
   SIGN_UP_INFORMATION_FORM,
+  SIGN_UP_PROFILE_PICTURE,
 } from "constants/signUp";
 
 function SignUp() {
@@ -32,9 +34,10 @@ function SignUp() {
         <>
           {/* <InformationForm /> */}
           {/* <ListSelect /> */}
-          <OneSelect />
+          {/* <OneSelect /> */}
         </>
       )}
+      {step === SIGN_UP_PROFILE_PICTURE && <PhotoRegistration />}
     </>
   );
 }
