@@ -21,7 +21,9 @@ import {
   SIGN_UP_PROFILE_PICTURE,
   SIGN_UP_SELF_INTRODUCTION,
   SIGN_UP_FORWARDING,
+  SIGN_UP_BADGE_INTRODUCTION,
 } from "constants/signUp";
+import { BadgeIntroduction } from "widgets/signUp/Badge";
 
 type ParamList = {
   sampleType: {
@@ -49,6 +51,7 @@ function SignUp() {
       {step === SIGN_UP_PROFILE_PICTURE && <PhotoRegistration />}
       {step === SIGN_UP_SELF_INTRODUCTION && <SelfIntroduction />}
       {step === SIGN_UP_FORWARDING && <Forwarding />}
+      {step === SIGN_UP_BADGE_INTRODUCTION && <BadgeIntroduction />}
     </>
   );
 }

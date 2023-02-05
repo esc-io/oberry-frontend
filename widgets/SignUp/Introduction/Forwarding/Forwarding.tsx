@@ -5,14 +5,21 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
+import { StackActions, useNavigation } from "@react-navigation/native";
 
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Text, Button, TextInput } from "react-native-paper";
 
 import { AppLayout } from "layouts";
 import { theme } from "styles/theme";
+import { SIGN_UP_BADGE_INTRODUCTION } from "constants/signUp";
 
 function Forwarding() {
+  const navigation = useNavigation();
+  const pushAction = StackActions.push("sign-up", {
+    step: SIGN_UP_BADGE_INTRODUCTION,
+  });
+
   return (
     <AppLayout title="전달사항">
       <TouchableWithoutFeedback
@@ -58,7 +65,13 @@ function Forwarding() {
                 }}
               />
             </View>
-            <Button mode="contained" textColor={theme.colors.black}>
+            <Button
+              mode="contained"
+              textColor={theme.colors.black}
+              onPress={() => {
+                navigation.dispatch(pushAction);
+              }}
+            >
               다음
             </Button>
           </View>
