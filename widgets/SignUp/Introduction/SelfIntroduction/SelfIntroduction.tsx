@@ -5,14 +5,22 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
+import { StackActions, useNavigation } from "@react-navigation/native";
+
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Text, Button, TextInput } from "react-native-paper";
 
 import { AppLayout } from "layouts";
 
 import { theme } from "styles/theme";
+import { SIGN_UP_FORWARDING } from "constants/signUp";
 
 function SelfIntroduction() {
+  const navigation = useNavigation();
+  const pushAction = StackActions.push("sign-up", {
+    step: SIGN_UP_FORWARDING,
+  });
+
   return (
     <AppLayout title="자기소개">
       <TouchableWithoutFeedback
@@ -66,8 +74,7 @@ function SelfIntroduction() {
                 </Text>
 
                 <TextInput
-                  placeholder={`예시)
-
+                  placeholder={`예시
 분위기 좋은 카페에서 거피 마시면서
 소통해요.`}
                   multiline={true}
@@ -81,7 +88,13 @@ function SelfIntroduction() {
                 />
               </View>
             </View>
-            <Button mode="contained" textColor={theme.colors.black}>
+            <Button
+              mode="contained"
+              textColor={theme.colors.black}
+              onPress={() => {
+                navigation.dispatch(pushAction);
+              }}
+            >
               다음
             </Button>
           </View>
