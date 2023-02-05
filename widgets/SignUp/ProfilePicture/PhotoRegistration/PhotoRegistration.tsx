@@ -1,12 +1,22 @@
+import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Text, Button } from "react-native-paper";
+
+import { useNavigation, StackActions } from "@react-navigation/native";
 
 import { AppLayout } from "layouts";
 
 import { theme } from "styles/theme";
+import { SIGN_UP_SELF_INTRODUCTION } from "constants/signUp";
+
 import ProfileImage from "./ProfileImage.widget";
 
 function PhotoRegistration() {
+  const navigation = useNavigation();
+  const pushAction = StackActions.push("sign-up", {
+    step: SIGN_UP_SELF_INTRODUCTION,
+  });
+
   return (
     <AppLayout title="프로필 사진">
       <View style={styles.container}>
@@ -52,7 +62,13 @@ function PhotoRegistration() {
             </View>
           </View>
         </View>
-        <Button mode="contained" textColor={theme.colors.black}>
+        <Button
+          mode="contained"
+          textColor={theme.colors.black}
+          onPress={() => {
+            navigation.dispatch(pushAction);
+          }}
+        >
           다음
         </Button>
       </View>
