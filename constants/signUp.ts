@@ -4,3 +4,4 @@ export const SIGN_UP_ACCOUNT_CREATION_FROM = 2;
 export const SIGN_UP_INFORMATION_FORM = 3;
 export const SIGN_UP_PROFILE_PICTURE = 4;
 export const SIGN_UP_SELF_INTRODUCTION = 5;
+export const SIGN_UP_FORWARDING = 6;
