@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useRoute } from "@react-navigation/native";
+import { RouteProp, useRoute } from "@react-navigation/native";
 
 import { ListSelect, OneSelect } from "widgets/common";
 
@@ -10,7 +10,8 @@ import {
   AccountCreationForm,
 } from "widgets/signUp/AccountCreation";
 import { InformationForm } from "widgets/signUp/BasicInformation";
-import { PhotoRegistration } from "widgets/signUp/ ProfilePicture";
+import { PhotoRegistration } from "widgets/signUp/ProfilePicture";
+import { SelfIntroduction } from "widgets/signUp/Introduction";
 
 import {
   SIGN_UP_INTRODUCTION,
@@ -18,12 +19,19 @@ import {
   SIGN_UP_ACCOUNT_CREATION_FROM,
   SIGN_UP_INFORMATION_FORM,
   SIGN_UP_PROFILE_PICTURE,
+  SIGN_UP_SELF_INTRODUCTION,
 } from "constants/signUp";
+
+type ParamList = {
+  sampleType: {
+    step: number;
+  };
+};
 
 function SignUp() {
   const {
     params: { step },
-  } = useRoute();
+  } = useRoute<RouteProp<ParamList, "sampleType">>();
 
   return (
     <>
@@ -38,6 +46,11 @@ function SignUp() {
         </>
       )}
       {step === SIGN_UP_PROFILE_PICTURE && <PhotoRegistration />}
+      {step === SIGN_UP_SELF_INTRODUCTION && (
+        <>
+          <SelfIntroduction />
+        </>
+      )}
     </>
   );
 }
