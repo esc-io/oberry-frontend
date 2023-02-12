@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
+import { StackActions, useNavigation } from "@react-navigation/native";
 
 import { Text, Button, Avatar } from "react-native-paper";
 
@@ -7,8 +8,14 @@ import { AppLayout } from "layouts";
 
 import { theme } from "styles/theme";
 import { Logo } from "components";
+import { SIGN_UP_BADGE_SELECT } from "constants/signUp";
 
 function BadgeIntroduction() {
+  const navigation = useNavigation();
+  const pushAction = StackActions.push("sign-up", {
+    step: SIGN_UP_BADGE_SELECT,
+  });
+
   return (
     <AppLayout title="뱃지 인증">
       <View style={styles.container}>
@@ -34,7 +41,13 @@ function BadgeIntroduction() {
             </Text>
           </View>
         </View>
-        <Button mode="contained" textColor={theme.colors.black}>
+        <Button
+          mode="contained"
+          textColor={theme.colors.black}
+          onPress={() => {
+            navigation.dispatch(pushAction);
+          }}
+        >
           시작
         </Button>
       </View>
