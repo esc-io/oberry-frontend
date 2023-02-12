@@ -12,6 +12,7 @@ import {
 import { InformationForm } from "widgets/signUp/BasicInformation";
 import { PhotoRegistration } from "widgets/signUp/ProfilePicture";
 import { Forwarding, SelfIntroduction } from "widgets/signUp/Introduction";
+import { BadgeIntroduction, BadgeSelect } from "widgets/signUp/Badge";
 
 import {
   SIGN_UP_INTRODUCTION,
@@ -22,8 +23,8 @@ import {
   SIGN_UP_SELF_INTRODUCTION,
   SIGN_UP_FORWARDING,
   SIGN_UP_BADGE_INTRODUCTION,
+  SIGN_UP_BADGE_SELECT,
 } from "constants/signUp";
-import { BadgeIntroduction } from "widgets/signUp/Badge";
 
 type ParamList = {
   sampleType: {
@@ -52,6 +53,7 @@ function SignUp() {
       {step === SIGN_UP_SELF_INTRODUCTION && <SelfIntroduction />}
       {step === SIGN_UP_FORWARDING && <Forwarding />}
       {step === SIGN_UP_BADGE_INTRODUCTION && <BadgeIntroduction />}
+      {step === SIGN_UP_BADGE_SELECT && <BadgeSelect />}
     </>
   );
 }

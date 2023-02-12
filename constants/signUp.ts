@@ -6,3 +6,4 @@ export const SIGN_UP_PROFILE_PICTURE = 4;
 export const SIGN_UP_SELF_INTRODUCTION = 5;
 export const SIGN_UP_FORWARDING = 6;
 export const SIGN_UP_BADGE_INTRODUCTION = 7;
+export const SIGN_UP_BADGE_SELECT = 8;
