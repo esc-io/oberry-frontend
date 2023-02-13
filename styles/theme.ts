@@ -13,6 +13,7 @@ export const theme = {
     pink: "#fc7aa7",
     white: "#ffff",
     black: "#000",
+    deep_plum: "#1a032d",
   },
 };
 
