@@ -29,7 +29,9 @@ import {
   SIGN_UP_FORWARDING,
   SIGN_UP_BADGE_INTRODUCTION,
   SIGN_UP_BADGE_SELECT,
+  SIGN_UP_APPLICATION_COMPLETED,
 } from "constants/signUp";
+import ApplicationCompleted from "widgets/signUp/ApplicationCompleted/ApplicationCompleted";
 
 type ParamList = {
   sampleType: {
@@ -65,6 +67,7 @@ function SignUp() {
           <CertificationRequest />
         </>
       )}
+      {step === SIGN_UP_APPLICATION_COMPLETED && <ApplicationCompleted />}
     </>
   );
 }
