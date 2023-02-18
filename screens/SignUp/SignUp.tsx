@@ -16,6 +16,7 @@ import {
   BadgeIntroduction,
   BadgeSelect,
   CertificationDataSubmit,
+  CertificationRequest,
 } from "widgets/signUp/Badge";
 
 import {
@@ -60,7 +61,8 @@ function SignUp() {
       {step === SIGN_UP_BADGE_SELECT && (
         <>
           {/* <BadgeSelect /> */}
-          <CertificationDataSubmit />
+          {/* <CertificationDataSubmit /> */}
+          <CertificationRequest />
         </>
       )}
     </>
