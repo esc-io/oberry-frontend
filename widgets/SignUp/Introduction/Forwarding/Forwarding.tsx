@@ -5,20 +5,19 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-import { StackActions, useNavigation } from "@react-navigation/native";
-
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Text, Button, TextInput } from "react-native-paper";
 
+import { useNavigation } from "@react-navigation/native";
+
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+
 import { AppLayout } from "layouts";
+
 import { theme } from "styles/theme";
-import { SIGN_UP_BADGE_INTRODUCTION } from "constants/signUp";
+import { SIGN_UP_Badge_Introduction } from "constants/signUp";
 
 function Forwarding() {
   const navigation = useNavigation();
-  const pushAction = StackActions.push("sign-up", {
-    step: SIGN_UP_BADGE_INTRODUCTION,
-  });
 
   return (
     <AppLayout title="전달사항">
@@ -33,13 +32,16 @@ function Forwarding() {
           <View style={styles.container}>
             <View>
               <Text variant="headlineSmall" style={styles.title}>
-                {`매니저에게 전달할 내용을
-작성해 주세요.`}
+                매니저에게 전달할 내용을
+                {"\n"}
+                작성해 주세요.
               </Text>
               <Text variant="bodyLarge" style={styles.subtitle}>
-                {`스스로 말하기 어려운 자랑 매니저에게 전달해
-주세요.
-매니저가 매칭시 대신해 드립니다.`}
+                스스로 말하기 어려운 자랑 매니저에게 전달해
+                {"\n"}
+                주세요.
+                {"\n"}
+                매니저가 매칭시 대신해 드립니다.
               </Text>
               <TextInput
                 placeholder={`예시)
@@ -68,9 +70,7 @@ function Forwarding() {
             <Button
               mode="contained"
               textColor={theme.colors.black}
-              onPress={() => {
-                navigation.dispatch(pushAction);
-              }}
+              onPress={() => navigation.navigate(SIGN_UP_Badge_Introduction)}
             >
               다음
             </Button>

@@ -1,18 +1,16 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { StackActions, useNavigation } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 import { Text, Button, Avatar } from "react-native-paper";
 
 import { AppLayout } from "layouts";
+
 import { theme } from "styles/theme";
-import { SIGN_UP_APPLICATION_COMPLETED } from "constants/signUp";
+import { SIGN_UP_Application_Completed } from "constants/signUp";
 
 function CertificationRequest() {
   const navigation = useNavigation();
-  const pushAction = StackActions.push("sign-up", {
-    step: SIGN_UP_APPLICATION_COMPLETED,
-  });
 
   return (
     <AppLayout title="인증 심사 요청">
@@ -75,7 +73,7 @@ function CertificationRequest() {
                       style={{
                         borderWidth: 2,
                         borderColor: theme.colors.primary,
-                        borderRadius: "50%",
+                        borderRadius: 50,
                       }}
                     >
                       <Avatar.Image
@@ -100,9 +98,7 @@ function CertificationRequest() {
         <Button
           mode="contained"
           textColor={theme.colors.black}
-          onPress={() => {
-            navigation.dispatch(pushAction);
-          }}
+          onPress={() => navigation.navigate(SIGN_UP_Application_Completed)}
         >
           본인인증 하기
         </Button>

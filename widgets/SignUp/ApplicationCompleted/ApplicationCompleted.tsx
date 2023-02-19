@@ -1,9 +1,11 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { Text, Button, Avatar } from "react-native-paper";
+import { Text } from "react-native-paper";
+
+import { LogoWithText } from "components";
 
 import { AppLayout } from "layouts";
-import { LogoWithText } from "components";
+
 import { theme } from "styles/theme";
 
 function ApplicationCompleted() {
