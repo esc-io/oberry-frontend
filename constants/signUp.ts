@@ -1,4 +1,4 @@
-export const SIGN_UP_Introduction = "Introduction";
+export const SIGN_UP_Introduction = "SignUpIntroduction";
 export const SIGN_UP_Self_Certification = "SelfCertification";
 export const SIGN_UP_Account_Creation_Form = "AccountCreationForm";
 export const SIGN_UP_Information_Form = "InformationForm";

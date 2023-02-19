@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Text, Div, Checkbox, Button } from "react-native-magnus";
 
-import { useLinkTo, useNavigation } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 import { Logo } from "components";
 
@@ -10,8 +10,7 @@ import { AppLayout } from "layouts";
 
 import { SIGN_UP_Self_Certification } from "constants/signUp";
 
-function Introduction() {
-  const linkTo = useLinkTo();
+function SignUpIntroduction() {
   const navigation = useNavigation();
 
   return (
@@ -90,7 +89,7 @@ function Introduction() {
               w="100%"
               bg="#22242c"
               mt={16}
-              onPress={() => linkTo("/login")}
+              onPress={() => navigation.navigate("login")}
             >
               로그인
             </Button>
@@ -101,7 +100,7 @@ function Introduction() {
   );
 }
 
-export default Introduction;
+export default SignUpIntroduction;
 
 const styles = StyleSheet.create({
   container: {

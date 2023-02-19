@@ -3,19 +3,19 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import {
-  Introduction,
-  SelfCertification,
   AccountCreationForm,
-} from "widgets/signUp/AccountCreation";
-import { InformationForm } from "widgets/signUp/BasicInformation";
-import { PhotoRegistration } from "widgets/signUp/ProfilePicture";
-import { Forwarding, SelfIntroduction } from "widgets/signUp/Introduction";
+  SignUpIntroduction,
+  SelfCertification,
+} from "containers/signUp/AccountCreation";
+import { InformationForm } from "containers/signUp/BasicInformation";
+import { PhotoRegistration } from "containers/signUp/ProfilePicture";
+import { Forwarding, SelfIntroduction } from "containers/signUp/Introduction";
 import {
   BadgeIntroduction,
   BadgeSelect,
   CertificationRequest,
-} from "widgets/signUp/Badge";
-import { ApplicationCompleted } from "widgets/signUp/ApplicationCompleted";
+} from "containers/signUp/Badge";
+import { ApplicationCompleted } from "containers/signUp/ApplicationCompleted";
 
 import {
   SIGN_UP_Account_Creation_Form,
@@ -36,7 +36,10 @@ const Stack = createNativeStackNavigator();
 function SignUp() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name={`${SIGN_UP_Introduction}`} component={Introduction} />
+      <Stack.Screen
+        name={`${SIGN_UP_Introduction}`}
+        component={SignUpIntroduction}
+      />
       <Stack.Screen
         name={`${SIGN_UP_Self_Certification}`}
         component={SelfCertification}
