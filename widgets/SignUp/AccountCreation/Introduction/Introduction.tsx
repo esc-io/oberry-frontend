@@ -2,23 +2,17 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Text, Div, Checkbox, Button } from "react-native-magnus";
 
-import {
-  useLinkTo,
-  useNavigation,
-  StackActions,
-} from "@react-navigation/native";
+import { useLinkTo, useNavigation } from "@react-navigation/native";
 
 import { Logo } from "components";
 
-import { SIGN_UP_SELF_CERTIFICATION } from "constants/signUp";
 import { AppLayout } from "layouts";
+
+import { SIGN_UP_Self_Certification } from "constants/signUp";
 
 function Introduction() {
   const linkTo = useLinkTo();
   const navigation = useNavigation();
-  const pushAction = StackActions.push("sign-up", {
-    step: SIGN_UP_SELF_CERTIFICATION,
-  });
 
   return (
     <AppLayout>
@@ -88,9 +82,7 @@ function Introduction() {
               bg="#F5C750"
               rounded="circle"
               color="black"
-              onPress={() => {
-                navigation.dispatch(pushAction);
-              }}
+              onPress={() => navigation.navigate(SIGN_UP_Self_Certification)}
             >
               가입하기
             </Button>

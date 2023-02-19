@@ -8,17 +8,17 @@ import { theme } from "styles/theme";
 import Login from "./screens/Login";
 import SignUp from "./screens/SignUp";
 
-const Stack = createNativeStackNavigator();
+const RootStack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <PaperProvider theme={theme}>
       <ThemeProvider>
         <NavigationContainer>
-          <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="login" component={Login} />
-            <Stack.Screen name="sign-up" component={SignUp} />
-          </Stack.Navigator>
+          <RootStack.Navigator screenOptions={{ headerShown: false }}>
+            <RootStack.Screen name="login" component={Login} />
+            <RootStack.Screen name="sign-up" component={SignUp} />
+          </RootStack.Navigator>
         </NavigationContainer>
       </ThemeProvider>
     </PaperProvider>

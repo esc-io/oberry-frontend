@@ -1,1 +1,1 @@
-export { default as ApplicationCompleted } from "./ApplicationCompleted/ApplicationCompleted";
+export { default as ApplicationCompleted } from "./ApplicationCompleted";

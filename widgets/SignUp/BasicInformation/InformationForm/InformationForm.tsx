@@ -2,12 +2,16 @@ import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { Text, TextInput, Button, ProgressBar } from "react-native-paper";
 
+import { useNavigation } from "@react-navigation/native";
+
 import { AppLayout } from "layouts";
 
 import { theme, useAppTheme } from "styles/theme";
+import { SIGN_UP_Photo_Registration } from "constants/signUp";
 
 function InformationForm() {
   const theme = useAppTheme();
+  const navigation = useNavigation();
 
   const formData = [
     {
@@ -95,46 +99,58 @@ function InformationForm() {
   return (
     <AppLayout title="기본정보 등록">
       {/* <ProgressBar progress={0.25} color={theme.colors.primary} /> */}
-      <ScrollView
-        style={styles.container}
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
-      >
-        <View>
-          <Text variant="bodyLarge" style={styles.title}>
-            매칭을 위한 회원님의 기본정보를 입력해주세요.
-          </Text>
-          {formData.map(({ label, value, icon }) => {
-            return (
-              <View key={label} style={styles.textInputBox}>
-                <Text variant="labelSmall" style={styles.textInputLabel}>
-                  {label}
-                </Text>
-                <TextInput
-                  value={value}
-                  editable={false}
-                  right={
-                    <TextInput.Icon
-                      icon={icon}
-                      iconColor={theme.colors.white}
-                      onPress={() => setVisible(true)}
-                    />
-                  }
-                  style={styles.textInput}
-                  theme={{
-                    colors: {
-                      onSurfaceVariant: theme.colors.gray500,
-                    },
-                  }}
-                />
-              </View>
-            );
-          })}
-        </View>
-        <Button mode="contained" textColor={theme.colors.black}>
-          다음
-        </Button>
-      </ScrollView>
+      <View style={styles.container}>
+        <ScrollView
+          contentContainerStyle={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+        >
+          <View>
+            <Text variant="bodyLarge" style={styles.title}>
+              매칭을 위한 회원님의 기본정보를 입력해주세요.
+            </Text>
+            {formData.map(({ label, value, icon }) => {
+              return (
+                <View key={label} style={styles.textInputBox}>
+                  <Text variant="labelSmall" style={styles.textInputLabel}>
+                    {label}
+                  </Text>
+                  <TextInput
+                    value={value}
+                    editable={false}
+                    right={
+                      <TextInput.Icon
+                        icon={icon}
+                        iconColor={theme.colors.white}
+                      />
+                    }
+                    style={styles.textInput}
+                    theme={{
+                      colors: {
+                        onSurfaceVariant: theme.colors.gray500,
+                      },
+                    }}
+                  />
+                </View>
+              );
+            })}
+          </View>
+          <Button
+            mode="contained"
+            textColor={theme.colors.black}
+            onPress={() => navigation.navigate(SIGN_UP_Photo_Registration)}
+            style={{
+              marginTop: 24,
+            }}
+          >
+            다음
+          </Button>
+        </ScrollView>
+      </View>
     </AppLayout>
   );
 }
@@ -143,6 +159,7 @@ export default InformationForm;
 
 const styles = StyleSheet.create({
   container: {
+    height: "90%",
     display: "flex",
     flexDirection: "column",
   },

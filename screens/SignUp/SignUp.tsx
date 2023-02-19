@@ -1,8 +1,6 @@
 import React from "react";
 
-import { RouteProp, useRoute } from "@react-navigation/native";
-
-import { ListSelect, OneSelect } from "widgets/common";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import {
   Introduction,
@@ -15,60 +13,66 @@ import { Forwarding, SelfIntroduction } from "widgets/signUp/Introduction";
 import {
   BadgeIntroduction,
   BadgeSelect,
-  CertificationDataSubmit,
   CertificationRequest,
 } from "widgets/signUp/Badge";
+import { ApplicationCompleted } from "widgets/signUp/ApplicationCompleted";
 
 import {
-  SIGN_UP_INTRODUCTION,
-  SIGN_UP_SELF_CERTIFICATION,
-  SIGN_UP_ACCOUNT_CREATION_FROM,
-  SIGN_UP_INFORMATION_FORM,
-  SIGN_UP_PROFILE_PICTURE,
-  SIGN_UP_SELF_INTRODUCTION,
-  SIGN_UP_FORWARDING,
-  SIGN_UP_BADGE_INTRODUCTION,
-  SIGN_UP_BADGE_SELECT,
-  SIGN_UP_APPLICATION_COMPLETED,
+  SIGN_UP_Account_Creation_Form,
+  SIGN_UP_Application_Completed,
+  SIGN_UP_Badge_Introduction,
+  SIGN_UP_Badge_Select,
+  SIGN_UP_Certification_Request,
+  SIGN_UP_Forwarding,
+  SIGN_UP_Information_Form,
+  SIGN_UP_Introduction,
+  SIGN_UP_Photo_Registration,
+  SIGN_UP_Self_Certification,
+  SIGN_UP_Self_Introduction,
 } from "constants/signUp";
-import ApplicationCompleted from "widgets/signUp/ApplicationCompleted/ApplicationCompleted";
 
-type ParamList = {
-  sampleType: {
-    step: number;
-  };
-};
+const Stack = createNativeStackNavigator();
 
 function SignUp() {
-  const {
-    params: { step },
-  } = useRoute<RouteProp<ParamList, "sampleType">>();
-
   return (
-    <>
-      {step === SIGN_UP_INTRODUCTION && <Introduction />}
-      {step === SIGN_UP_SELF_CERTIFICATION && <SelfCertification />}
-      {step === SIGN_UP_ACCOUNT_CREATION_FROM && <AccountCreationForm />}
-      {step === SIGN_UP_INFORMATION_FORM && (
-        <>
-          {/* <InformationForm /> */}
-          {/* <ListSelect /> */}
-          {/* <OneSelect /> */}
-        </>
-      )}
-      {step === SIGN_UP_PROFILE_PICTURE && <PhotoRegistration />}
-      {step === SIGN_UP_SELF_INTRODUCTION && <SelfIntroduction />}
-      {step === SIGN_UP_FORWARDING && <Forwarding />}
-      {step === SIGN_UP_BADGE_INTRODUCTION && <BadgeIntroduction />}
-      {step === SIGN_UP_BADGE_SELECT && (
-        <>
-          {/* <BadgeSelect /> */}
-          {/* <CertificationDataSubmit /> */}
-          <CertificationRequest />
-        </>
-      )}
-      {step === SIGN_UP_APPLICATION_COMPLETED && <ApplicationCompleted />}
-    </>
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name={`${SIGN_UP_Introduction}`} component={Introduction} />
+      <Stack.Screen
+        name={`${SIGN_UP_Self_Certification}`}
+        component={SelfCertification}
+      />
+      <Stack.Screen
+        name={`${SIGN_UP_Account_Creation_Form}`}
+        component={AccountCreationForm}
+      />
+      <Stack.Screen
+        name={`${SIGN_UP_Information_Form}`}
+        component={InformationForm}
+      />
+
+      <Stack.Screen
+        name={`${SIGN_UP_Photo_Registration}`}
+        component={PhotoRegistration}
+      />
+      <Stack.Screen
+        name={`${SIGN_UP_Self_Introduction}`}
+        component={SelfIntroduction}
+      />
+      <Stack.Screen name={`${SIGN_UP_Forwarding}`} component={Forwarding} />
+      <Stack.Screen
+        name={`${SIGN_UP_Badge_Introduction}`}
+        component={BadgeIntroduction}
+      />
+      <Stack.Screen name={`${SIGN_UP_Badge_Select}`} component={BadgeSelect} />
+      <Stack.Screen
+        name={`${SIGN_UP_Certification_Request}`}
+        component={CertificationRequest}
+      />
+      <Stack.Screen
+        name={`${SIGN_UP_Application_Completed}`}
+        component={ApplicationCompleted}
+      />
+    </Stack.Navigator>
   );
 }
 

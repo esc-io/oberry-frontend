@@ -5,7 +5,7 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-import { StackActions, useNavigation } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Text, Button, TextInput } from "react-native-paper";
@@ -13,13 +13,10 @@ import { Text, Button, TextInput } from "react-native-paper";
 import { AppLayout } from "layouts";
 
 import { theme } from "styles/theme";
-import { SIGN_UP_FORWARDING } from "constants/signUp";
+import { SIGN_UP_Forwarding } from "constants/signUp";
 
 function SelfIntroduction() {
   const navigation = useNavigation();
-  const pushAction = StackActions.push("sign-up", {
-    step: SIGN_UP_FORWARDING,
-  });
 
   return (
     <AppLayout title="자기소개">
@@ -91,9 +88,7 @@ function SelfIntroduction() {
             <Button
               mode="contained"
               textColor={theme.colors.black}
-              onPress={() => {
-                navigation.dispatch(pushAction);
-              }}
+              onPress={() => navigation.navigate(SIGN_UP_Forwarding)}
             >
               다음
             </Button>
