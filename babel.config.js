@@ -17,7 +17,7 @@ module.exports = function (api) {
             layouts: "./layouts",
             screens: "./screens",
             styles: "./styles",
-            widgets: "./widgets",
+            containers: "./containers",
           },
         },
       ],

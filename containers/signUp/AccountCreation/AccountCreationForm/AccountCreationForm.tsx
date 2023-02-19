@@ -18,12 +18,13 @@ function AccountCreationForm() {
       <View style={styles.container}>
         <View>
           <Text variant="headlineSmall" style={styles.title}>
-            {`서비스 이용을 위한 계정을
-생성합니다.`}
+            서비스 이용을 위한 계정을
+            {"\n"}
+            생성합니다.
           </Text>
           <Text variant="bodyLarge" style={styles.contents}>
-            {`본인의 이메일을 이용해 계정을 생성합니다.
-본 서비스는 계정을 공유하는 등의 행위를 절대 금합니다.`}
+            본인의 이메일을 이용해 계정을 생성합니다.
+            {"\n"}본 서비스는 계정을 공유하는 등의 행위를 절대 금합니다.
           </Text>
           <View style={styles.textInputBox}>
             <TextInput

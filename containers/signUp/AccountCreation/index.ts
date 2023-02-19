@@ -1,3 +1,3 @@
 export { default as AccountCreationForm } from "./AccountCreationForm/AccountCreationForm";
-export { default as Introduction } from "./Introduction/Introduction";
+export { default as SignUpIntroduction } from "./SignUpIntroduction/SignUpIntroduction";
 export { default as SelfCertification } from "./SelfCertification/SelfCertification";
