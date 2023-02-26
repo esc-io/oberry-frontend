@@ -25,7 +25,7 @@ function UserHome() {
     },
     {
       title: "지인 만남 차단",
-      navigate: "",
+      navigate: "BlockContact",
     },
   ];
 
