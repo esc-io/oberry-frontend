@@ -10,7 +10,7 @@ function LogoWithText({ width, height }: LogoWithTextProps) {
   return (
     <View>
       <Image
-        source={require("../assets/Full.webp")}
+        source={require("../assets/full.png")}
         style={{
           width,
           height,
