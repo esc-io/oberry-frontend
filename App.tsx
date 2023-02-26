@@ -9,7 +9,6 @@ import { theme } from "styles/theme";
 // import Login from "./screens/Login";
 // import SignUp from "./screens/SignUp";
 import Account from "./screens/Account";
-import { BottomNavigation } from "./components";
 
 const RootStack = createNativeStackNavigator();
 

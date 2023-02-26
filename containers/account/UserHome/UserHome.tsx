@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { Text, Avatar, List } from "react-native-paper";
 
@@ -7,6 +8,8 @@ import { AppLayout } from "layouts";
 import { theme } from "styles/theme";
 
 function UserHome() {
+  const navigation = useNavigation();
+
   const menuList = [
     {
       title: "회원 만남 후기",
@@ -18,7 +21,7 @@ function UserHome() {
     },
     {
       title: "선호 이성 설정",
-      navigate: "",
+      navigate: "PreferredGender",
     },
     {
       title: "지인 만남 차단",
@@ -57,7 +60,7 @@ function UserHome() {
           </View>
         </View>
         <List.Section style={styles.list}>
-          {menuList.map(({ title }) => {
+          {menuList.map(({ title, navigate }) => {
             return (
               <List.Item
                 key={title}
@@ -66,6 +69,7 @@ function UserHome() {
                 right={() => (
                   <List.Icon color={theme.colors.white} icon="chevron-right" />
                 )}
+                onPress={() => navigation.navigate(navigate)}
               />
             );
           })}
